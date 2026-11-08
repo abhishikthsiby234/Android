@@ -1,0 +1,45 @@
+package com.example.calc;
+
+import android.os.Bundle;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+public class MainActivity extends AppCompatActivity {
+  Button add,mul,div,sub;
+  EditText n1,n2;
+  TextView result;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        n1=findViewById(R.id.n1);
+        n2=findViewById(R.id.n2);
+        add=findViewById(R.id.add);
+        sub=findViewById(R.id.sub);
+        div=findViewById(R.id.div);
+        mul=findViewById(R.id.mul);
+        result=findViewById(R.id.result);
+        add.setOnClickListener(v -> {
+            double a=Double.parseDouble(n1.getText().toString());
+            double b=Double.parseDouble(n2.getText().toString());
+            result.setText("Result:"+(a+b));
+        });
+        sub.setOnClickListener(v -> {
+            double a=Double.parseDouble(n1.getText().toString());
+            double b=Double.parseDouble(n2.getText().toString());
+            result.setText("Result:"+(a-b));
+        });
+        mul.setOnClickListener(v -> {
+            double a=Double.parseDouble(n1.getText().toString());
+            double b=Double.parseDouble(n2.getText().toString());
+            result.setText("Result:"+(a*b));
+        });
+        div.setOnClickListener(v -> {
+            double a=Double.parseDouble(n1.getText().toString());
+            double b=Double.parseDouble(n2.getText().toString());
+            result.setText("Result:"+(a/b));
+        });
+
+    }
+}
