@@ -1,0 +1,36 @@
+package com.example.spin;
+
+import android.os.Bundle;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    protected void onCreate(Bundle b) {
+        super.onCreate(b);
+        setContentView(R.layout.activity_main);
+
+        Spinner spinner = findViewById(R.id.spinner);
+
+        String[] items = {"India", "Japan", "America", "China"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_dropdown_item, items);
+
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> p,
+                                       android.view.View v, int pos, long id) {
+
+                Toast.makeText(MainActivity.this,
+                        "Selected: " + items[pos],
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> p) {
+            }
+        });
+    }
+}
