@@ -1,0 +1,30 @@
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.widget.*;
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    protected void onCreate(Bundle b) {
+        super.onCreate(b);
+        setContentView(R.layout.activity_main);
+
+        ImageView img1 = findViewById(R.id.img1);
+        ImageView img2 = findViewById(R.id.img2);
+        Button btn = findViewById(R.id.btn);
+
+        img2.setVisibility(View.GONE);
+
+        btn.setOnClickListener(v -> {
+            if(img1.getVisibility() == View.VISIBLE) {
+                img1.setVisibility(View.GONE);
+                img2.setVisibility(View.VISIBLE);
+            } else {
+                img1.setVisibility(View.VISIBLE);
+                img2.setVisibility(View.GONE);
+            }
+        });
+    }
+}
