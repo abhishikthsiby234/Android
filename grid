@@ -1,0 +1,24 @@
+package com.example.listt;
+
+import android.os.Bundle;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+ListView list;
+    protected void onCreate(Bundle b) {
+        super.onCreate(b);
+        setContentView(R.layout.activity_main);
+        String[] countries = {"japan", "afriva", "india", "america"};
+        list = findViewById(R.id.list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countries);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener ((parent,v,position,id)-> {
+            Toast.makeText(this,countries[position],Toast.LENGTH_SHORT).show();
+
+        });
+
+    }
+}
